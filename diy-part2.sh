@@ -12,3 +12,5 @@
 
 # Modify default IP
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
+wget https://raw.githubusercontent.com/xiaochenll/openwrt-act/main/update_aliyun_com.sh -P ./package/lean/ddns-scripts_aliyun
+chmod 755 ./package/lean/ddns-scripts_aliyun/update_aliyun_com.sh
