@@ -1,0 +1,99 @@
+#!name=搜索命令
+#!desc=最后更新时间 2022-03-23
+[URL Rewrite]
+#Q-Search
+
+# - Safari 内输入 命令 + 空格 + 关键词 快速指定搜索引擎搜索
+#注：先进入设置更改 Safari 默认搜索为 google
+#可自行修改指令或者添加搜索引擎
+
+# ＞搜索
+# gm   (Google图片)
+^https:\/\/google.com\/\?q=gm\+([^&]+).+ https://www.google.com/search?&tbm=isch&q=$1 302
+# gh   (GitHub)
+^https:\/\/google.com\/\?q=gh\+([^&]+).+ https://github.com/search?q=$1 302
+# sof  (Stack Overflow)
+^https:\/\/google.com\/\?q=sof\+([^&]+).+ https://stackoverflow.com/search?q=$1 302
+# se  (StackExchange)
+^https:\/\/google.com\/\?q=se\+([^&]+).+ https://stackexchange.com/search?q=$1 302
+# wa  (WolframAlpha)
+^https:\/\/google.com\/\?q=wa\+([^&]+).+ https://www.wolframalpha.com/input/?i=$1 302
+# wiki  (维基百科)
+^https:\/\/google.com\/\?q=wiki(\+|%20)([^&]+).+ http://wikipedia.org/wiki/$2 302
+# wk  (维基中文)
+^https:\/\/google.com\/\?q=wk(\+|%20)([^&]+).+ https://zh.wikipedia.org/wiki/$2 302
+# mg  (Magi)
+^https:\/\/google.com\/\?q=mg(\+|%20)([^&]+).+ https://magi.com/search?q=$2 302
+# tf  (Google 搜索 TestFlight)
+^https:\/\/google.com\/\?q=tf(\+|%20)([^&]+).+ https://www.google.com/search?as_q=$2&as_sitesearch=testflight.apple.com 302
+
+# > 翻译
+# yd   (有道)
+^https:\/\/google.com\/\?q=yd\+([^&]+).+ http://dict.youdao.com/search?q=$1 302
+# trc  (Google 译至中)
+^https:\/\/google.com\/\?q=trc\+([^&]+).+ https://translate.google.com/#view=home&op=translate&sl=auto&tl=zh-CN&text=$1 302
+# tre  (Google 译至英)
+^https:\/\/google.com\/\?q=tre\+([^&]+).+ https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text=$1 302
+# trj  (Google 译至日)
+^https:\/\/google.com\/\?q=trj\+([^&]+).+ https://translate.google.com/#view=home&op=translate&sl=auto&tl=ja&text=$1 302
+
+# ＞社区
+# db：豆瓣
+^https:\/\/google.com\/\?q=db\+([^&]+).+ https://m.douban.com/search/?query=$1 302
+# zh: 知乎
+^https:\/\/google.com\/\?q=zh\+([^&]+).+ https://www.zhihu.com/search?type=content&q=$1 302
+# wb: 微博
+^https:\/\/google.com\/\?q=wb\+([^&]+).+ https://s.weibo.com/weibo/$1 302
+# wx: 微信
+^https:\/\/google.com\/\?q=wx\+([^&]+).+ https://weixin.sogou.com/weixinwap?query=$1 302
+# rd  (Reddit)
+^https:\/\/google.com\/\?q=rd\+([^&]+).+ https://www.reddit.com/search?q=$1 302
+# tw (Twitter)
+^https:\/\/google.com\/\?q=tw\+([^&]+).+ https://twitter.com/search?q=$1 302
+# ssp: 少数派
+^https:\/\/google.com\/\?q=ssp\+([^&]+).+ https://sspai.com/search/post/$1 302
+# csdn: CSDN
+^https:\/\/google.com\/\?q=csdn\+([^&]+).+ https://so.csdn.net/so/search/s.do?q=$1&t=&u= 302
+
+# > 购物
+# zdm: 什么值得买
+^https:\/\/google.com\/\?q=zdm\+([^&]+).+ https://search.m.smzdm.com/?v=b&s=$1 302
+# amz: 亚马逊
+^https:\/\/google.com\/\?q=amz\+([^&]+).+ https://www.amazon.cn/gp/aw/s/?k=$1 302
+# jd : 京东
+^https:\/\/google.com\/\?q=jd\+([^&]+).+ https://so.m.jd.com/ware/search.action?keyword=$1 302
+# tb: 淘宝
+^https:\/\/google.com\/\?q=tb\+([^&]+).+ https://s.m.taobao.com/h5?q=$1 302
+# tm: 天猫
+^https:\/\/google.com\/\?q=tm\+([^&]+).+ https://s.m.tmall.com/m/search.htm?q=$1 302
+
+# ＞视频资源
+# ac (Acfun)
+^https:\/\/google.com\/\?q=ac\+([^&]+).+ https://www.acfun.cn/search?keyword=$1 302
+# bli (哔哩哔哩) 
+^https:\/\/google.com\/\?q=bli\+([^&]+).+ https://m.bilibili.com/search?keyword=$1 302
+# ytb  (YouTube)
+^https:\/\/google.com\/\?q=ytb\+([^&]+).+ https://www.youtube.com/results?search_query=$1 302
+# ph  (PornHub) 
+^https:\/\/google.com\/\?q=ph\+([^&]+).+ https://cn.pornhub.com/video/search?search=$1 302
+
+# ＞网盘
+# gd  (Google Drive)
+^https:\/\/google.com\/\?q=gd\+([^&]+).+ https://www.google.com/search?q=%22Google+Drive%22+$1 302
+# tgd  (t.me/gdurl 搜索 Google Drive 资源)
+^https:\/\/google.com\/\?q=tgd\+([^&]+).+ https://t.me/s/gdurl?q=$1 302
+# zgd  (https://zhao.pp.ua 搜索 Google Drive 资源)
+^https:\/\/google.com\/\?q=zgd(\+|%20)([^&]+).+ https://zhao.pp.ua/?q=$2 302
+
+# ＞默认搜索
+# bi: 必应
+^https:\/\/google.com\/\?q=bi\+([^&]+).+ https://cn.bing.com/search?q=$1 302
+# bd: 百度
+^https:\/\/google.com\/\?q=bd\+([^&]+).+ https://www.baidu.com/s?wd=$1 302
+# ddg: DuckDuckGo 
+^https:\/\/google.com\/\?q=ddg\+([^&]+).+ https://duckduckgo.com/?ia=about&q=$1 302
+# 无指令: 谷歌
+^https:\/\/google.com\/\?q=([^&]+).+ https://www.google.com/search?q=$1 302
+
+[MITM]
+hostname = google.com
