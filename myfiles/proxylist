@@ -24,7 +24,7 @@
 		"domain": [
 			"geosite:geolocation-!cn"
 		]
-	}
+	},
 	{
 		"type": "field",
 		"port": "",
