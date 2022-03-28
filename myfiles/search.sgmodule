@@ -120,4 +120,4 @@
 # 无指令: 谷歌
 #^https:\/\/www.google.cn\/search\?q=([^&]+).+ https://www.google.com/search?q=$1 302
 [MITM]
-hostname = %APPEND% www.google.cn
+hostname = www.google.cn
