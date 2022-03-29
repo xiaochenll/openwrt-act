@@ -1,8 +1,5 @@
 #!name=Q-Search
-#!desc=by Neurogram
-#!system=ios
-# Q-Search 
-# Modified by nzw9314 
+#!desc=by Neurogram nzw9314 
 # From Neurogram (https://raw.githubusercontent.com/Neurogram-R/Surge/master/module/Q-Search.sgmodule)
 # - Safari 内输入 命令 + 空格 + 关键词 快速指定搜索引擎搜索
 #  注：先进入设置更改 Safari 默认搜索为 谷歌
@@ -118,6 +115,6 @@
 # ddg: DuckDuckGo 
 ^https:\/\/www.google.cn\/search\?q=ddg\+([^&]+).+ https://duckduckgo.com/?ia=about&q=$1 302
 # 无指令: 谷歌
-#^https:\/\/www.google.cn\/search\?q=([^&]+).+ https://www.google.com/search?q=$1 302
+^https:\/\/www.google.cn\/search\?q=([^&]+).+ https://www.google.com/search?q=$1 302
 [MITM]
 hostname = %APPEND% www.google.cn
