@@ -5,8 +5,8 @@
 force-http-engine-hosts = *.cp31.ott.cibntv.net,*.ott.cibntv.net,119.79*,124.14*,124.193*,211.162*,220.112*,intl.iqiyi.com,maicai.api.ddxq.mobi,mobileapi-v6.elong.com,weibointl.api.weibo.cn,wmapi.meituan.com
 
 [Rule]
-DOMAIN-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Advertising/Advertising_Domain.list,REJECT
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Advertising/Advertising.list,REJECT
+#DOMAIN-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Advertising/Advertising_Domain.list,REJECT
+#RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Advertising/Advertising.list,REJECT
 DOMAIN,api.cupid.dns.iqiyi.com,REJECT
 DOMAIN,video-ad.sm.cn,REJECT
 DOMAIN-SUFFIX,cupid.iqiyi.com,REJECT
