@@ -5,27 +5,27 @@
 force-http-engine-hosts = *.cp31.ott.cibntv.net,*.ott.cibntv.net,119.79*,124.14*,124.193*,211.162*,220.112*,intl.iqiyi.com,maicai.api.ddxq.mobi,mobileapi-v6.elong.com,weibointl.api.weibo.cn,wmapi.meituan.com
 
 [Rule]
-DOMAIN,180.76.76.200,REJECT
+DOMAIN,180.76.76.200,REJECT-DROP
 # no-resolve需在最后
-IP-CIDR,180.76.76.200/32,REJECT,no-resolve
-DOMAIN,im.tieba.baidu.com,REJECT
+IP-CIDR,180.76.76.200/32,REJECT-DROP,no-resolve
+DOMAIN,im.tieba.baidu.com,REJECT-DROP
 # 知乎去广告
-DOMAIN,118.89.204.198,REJECT
+DOMAIN,118.89.204.198,REJECT-200
 IP-CIDR,118.89.204.198/32,REJECT-DROP,no-resolve
 IP-CIDR6,2402:4e00:1200:ed00:0:9089:6dac:96b6/128,REJECT-DROP,no-resolve
-DOMAIN,appcloud2.in.zhihu.com,REJECT
-DOMAIN,mqtt.zhihu.com,REJECT
-DOMAIN,sugar.zhihu.com,REJECT
+DOMAIN,appcloud2.in.zhihu.com,REJECT-200
+DOMAIN,mqtt.zhihu.com,REJECT-200
+DOMAIN,sugar.zhihu.com,REJECT-200
 USER-AGENT,AVOS*,REJECT
 # 拦截知乎开屏广告
-URL-REGEX,^https?:\/\/api\.zhihu\.com\/commercial_api\/launch_v2\?,REJECT
+URL-REGEX,^https?:\/\/api\.zhihu\.com\/commercial_api\/launch_v2\?,REJECT-200
 # 拦截知乎品牌提问广告
-URL-REGEX,^https?:\/\/api\.zhihu\.com\/brand\/question\/\d+/card\?,REJECT
-URL-REGEX,^https?:\/\/www\.zhihu\.com\/api\/v\d+\/brand\/question/\d+/card\?,REJECT
+URL-REGEX,^https?:\/\/api\.zhihu\.com\/brand\/question\/\d+/card\?,REJECT-200
+URL-REGEX,^https?:\/\/www\.zhihu\.com\/api\/v\d+\/brand\/question/\d+/card\?,REJECT-200
 # 拦截知乎回答下的广告
-URL-REGEX,^https?:\/\/www\.zhihu\.com\/api\/v4\/answers\/\d+\/recommendations,REJECT
+URL-REGEX,^https?:\/\/www\.zhihu\.com\/api\/v4\/answers\/\d+\/recommendations,REJECT-200
 # 知乎拦截部分预加载
-URL-REGEX,^https?:\/\/www\.zhihu\.com\/appview\/(p|v2\/answer|zvideo)\/.*entry=(preload-topstory|preload-search|preload-subscription),REJECT
+URL-REGEX,^https?:\/\/www\.zhihu\.com\/appview\/(p|v2\/answer|zvideo)\/.*entry=(preload-topstory|preload-search|preload-subscription),REJECT-200
 # 知乎网页版去广告
 URL-REGEX,^https?:\/\/www\.zhihu\.com\/api\/v4/(questions|anwsers)\/\d+/related-readings,REJECT-TINYGIF
 URL-REGEX,^https?:\/\/www\.zhihu\.com\/api\/v4\/hot_recommendation,REJECT-TINYGIF
@@ -936,7 +936,6 @@ youtubead = type=http-request,pattern=^https://[^.]+\.googlevideo\.com/.+&ctier=
 创作者广告共享计划 = type=http-response,pattern=^https://(api\.weibo\.cn|mapi\.weibo\.com)/2/statuses/extend\?,requires-body=true,max-size=0,script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_statuses_extend.js,enable=true
 开屏广告 = type=http-response,pattern=^https://sdkapp\.uve\.weibo\.com/interface/sdk/sdkad\.php$,requires-body=true,max-size=0,script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/weibo/weibo_sdkad.js,enable=true
 BiduYunpan vip = type=http-response,pattern=^https?://pan\.baidu\.com/rest/\d\.\d/membership/user\?.+&firstlaunchtime=\d+,requires-body=true,max-size=0,script-path=https://raw.githubusercontent.com/yjqiang/surge_scripts/main/scripts/baidu/baidu_yunpan.js,enable=true
-tiebaj = type=http-response,pattern=^(http\:\/\/c\.tieba\.baidu\.com\/(tiebaads\/commonbatch|c\/s\/sync)|https\:\/\/afd\.baidu\.com\/afd\/entry),script-path=https://raw.githubusercontent.com/adianshiye/jd/main/loon/Script/tieba-json.js,requires-body=true,timeout=10,enable=true
-tiebap = type=http-response,pattern=^http\:\/\/c\.tieba\.baidu\.com\/c\/f\/((frs|pb)\/page|excellent\/personalized|frs\/generalTabList),script-path=https://raw.githubusercontent.com/adianshiye/jd/main/loon/Script/tieba-proto.js,requires-body=true,binary-body-mode=true,timeout=10,enable=true
+贴吧json = type=http-response,pattern=^(http:\/\/c\.tieba\.baidu\.com\/(tiebaads\/commonbatch|c\/s\/sync)|https:\/\/afd\.baidu\.com\/afd\/entry),requires-body=true,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js,enable=true
 
 [MITM]
