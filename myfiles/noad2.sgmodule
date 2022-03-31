@@ -7,6 +7,7 @@ force-http-engine-hosts = *.cp31.ott.cibntv.net,*.ott.cibntv.net,119.79*,124.14*
 [Rule]
 RULE-SET,https://raw.githubusercontent.com/app2smile/rules/master/rule/ad.list,REJECT-DROP
 RULE-SET,https://raw.githubusercontent.com/app2smile/rules/master/rule/tieba-ad.list,REJECT-DROP
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/zhihu/zhihu_remove_ads.list,REJECT-DROP
 DOMAIN,api.cupid.dns.iqiyi.com,REJECT
 DOMAIN,video-ad.sm.cn,REJECT
 DOMAIN-SUFFIX,cupid.iqiyi.com,REJECT
@@ -895,7 +896,7 @@ USER-AGENT,AVOS*,REJECT
 "^https?:\/\/you\.163\.com\/" https://you.163.com/ 302
 
 [Script]
-去微信公众号广告 = type=http-response,pattern=^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js
+去微信公众号广告 = type=http-response,pattern=^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad,requires-body=1,max-size=1048576,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js
 微博去广告 = type=http-response,pattern=^https?://(sdk|wb)app\.uve\.weibo\.com(/interface/sdk/sdkad.php|/wbapplua/wbpullad.lua),requires-body=1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_launch.js
 微博去广告 = type=http-response,pattern=^https?://m?api\.weibo\.c(n|om)/2/(statuses/(unread|extend|positives/get|(friends|video)(/|_)(mix)?timeline)|stories/(video_stream|home_list)|(groups|fangle)/timeline|profile/statuses|comments/build_comments|photo/recommend_list|service/picfeed|searchall|cardlist|page|!/(photos/pic_recommend_status|live/media_homelist)|video/tiny_stream_video_list|photo/info|remind/unread_count),requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/yichahucha/surge/master/wb_ad.js
 京东_开屏去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js,pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=start
@@ -907,17 +908,21 @@ USER-AGENT,AVOS*,REJECT
 什么值得买_搜索结果去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js,pattern=^https?:\/\/s-api\.smzdm\.com\/sou\/list
 什么值得买_百科去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js,pattern=^https?:\/\/baike-api\.smzdm\.com\/home_v3\/list
 什么值得买_首页去广告 = type=http-response,requires-body=1,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/smzdm/smzdm_remove_ads.js,pattern=^https?:\/\/homepage-api\.smzdm\.com\/home
-去广告 = type=http-response,pattern=^https:\/\/api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk\/get_ads,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/ad.js
-去广告 = type=http-response,pattern=^https:\/\/appcloud2\.zhihu\.com\/v3\/config$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/ad.js
-去广告 = type=http-response,pattern=^https:\/\/www\.zhihu\.com\/api\/v4\/answers\/\d+\/recommendations,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/ad.js
-去广告 = type=http-response,pattern=^https:\/\/api\.zhihu\.com\/topstory\/recommend|commercial_api\/(real_time_launch_v2|app_float_layer$)|questions\/\d+\/feeds\?|v4\/questions\/\d+\/answers\?,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/ad.js
-去广告 = type=http-response,pattern=^https:\/\/magev6\.if\.qidian\.com\/argus\/api\/v4\/client\/getsplashscreen|v2\/deeplink\/geturl|v1\/client\/getconf|adv\/getadvlistbatch\?positions=iOS_tab|dailyrecommend\/getdailyrecommend,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/ad.js
-去广告 = type=http-response,pattern=^https:\/\/news\.ssp\.qq\.com\/app|r\.inews\.qq\.com\/getQQNewsUnreadList|getQQNewsMixedList|getTopicSelectList|getQQNewsSpecialListItemsV2|getTwentyFourHourNews,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/ad.js
-去广告 = type=http-response,pattern=^https:\/\/us\.l\.qq\.com\/exapp|mi\.gdt\.qq\.com\/gdt_mview\.fcg\?|open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/ad.js
-去广告 = type=http-response,pattern=^http:\/\/app02\.vgtime\.com:8080\/vgtime-app\/api\/v2\/init\/ad\.json,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/ad.js
+知乎_处理用户信息 = type=http-response,requires-body=1,max-size=1048576,pattern=^https?:\/\/api\.zhihu\.com\/people\/,script-path=https://gist.githubusercontent.com/blackmatrix7/2e550ebf28ca60d620654e394ec47e0b/raw/zhihu.js
+知乎_信息流去广告 = type=http-response,requires-body=1,max-size=1048576,pattern=^https?:\/\/api\.zhihu\.com\/(moments|topstory)(\/|\?)?(recommend|action=|feed_type=)(?!\/people),script-path=https://gist.githubusercontent.com/blackmatrix7/2e550ebf28ca60d620654e394ec47e0b/raw/zhihu.js
+知乎_获取黑名单 = type=http-response,requires-body=1,max-size=1048576,pattern=^https?:\/\/api\.zhihu\.com\/settings\/blocked_users,script-path=https://gist.githubusercontent.com/blackmatrix7/2e550ebf28ca60d620654e394ec47e0b/raw/zhihu.js
+知乎_官方消息去广告 = type=http-response,requires-body=1,max-size=1048576,pattern=^https?:\/\/api\.zhihu\.com\/notifications\/v3\/(message|timeline\/entry\/system_message),script-path=https://gist.githubusercontent.com/blackmatrix7/2e550ebf28ca60d620654e394ec47e0b/raw/zhihu.js
+知乎_预置关键词去广告 = type=http-response,requires-body=1,max-size=1048576,pattern=^https?:\/\/api\.zhihu\.com\/search\/preset_words\?,script-path=https://gist.githubusercontent.com/blackmatrix7/2e550ebf28ca60d620654e394ec47e0b/raw/zhihu.js
+知乎_回答列表去广告 = type=http-response,requires-body=1,max-size=1048576,pattern=^https?:\/\/api\.zhihu\.com\/v4\/questions,script-path=https://gist.githubusercontent.com/blackmatrix7/2e550ebf28ca60d620654e394ec47e0b/raw/zhihu.js
+知乎_回答内容优化 = type=http-response,requires-body=1,max-size=1048576,pattern=^https?:\/\/www\.zhihu\.com\/appview\/v2\/answer\/.*(entry=(?!(preload-topstory|preload-search|preload-subscription)))?,script-path=https://gist.githubusercontent.com/blackmatrix7/2e550ebf28ca60d620654e394ec47e0b/raw/zhihu.js
+知乎_优化软件配置 = type=http-response,requires-body=1,max-size=1048576,pattern=^https?:\/\/appcloud2\.zhihu\.com\/v\d+\/config,script-path=https://gist.githubusercontent.com/blackmatrix7/2e550ebf28ca60d620654e394ec47e0b/raw/zhihu.js
+知乎_热搜去广告 = type=http-response,requires-body=1,max-size=1048576,pattern=^https?:\/\/api\.zhihu\.com\/search\/top_search\/tabs\/hot\/items,script-path=https://gist.githubusercontent.com/blackmatrix7/2e550ebf28ca60d620654e394ec47e0b/raw/zhihu.js
+知乎_热榜去广告 = type=http-response,requires-body=1,max-size=1048576,pattern=^https?:\/\/api\.zhihu\.com\/topstory\/hot-lists?(\?|\/),script-path=https://gist.githubusercontent.com/blackmatrix7/2e550ebf28ca60d620654e394ec47e0b/raw/zhihu.js
+知乎_评论去广告 = type=http-response,requires-body=1,max-size=1048576,pattern=^https?:\/\/api\.zhihu\.com\/(comment_v5\/)?(answers|comments?|articles|pins)\/\d+\/(root_|child_)?comments?,script-path=https://gist.githubusercontent.com/blackmatrix7/2e550ebf28ca60d620654e394ec47e0b/raw/zhihu.js
+知乎_解锁关键词屏蔽 = type=http-request,requires-body=1,max-size=1048576,pattern=^https?:\/\/api\.zhihu\.com\/feed-root\/block,script-path=https://gist.githubusercontent.com/blackmatrix7/2e550ebf28ca60d620654e394ec47e0b/raw/zhihu.js
 百度防跳转 = type=http-response,pattern=^https:\/\/boxer\.baidu\.com\/scheme\?scheme,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/baidu-no-redirect.js
-贴吧json = type=http-response,pattern=^http:\/\/c\.tieba\.baidu\.com\/(tiebaads\/commonbatch|c\/s\/sync),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js
-贴吧json = type=http-response,pattern=^https:\/\/afd\.baidu\.com\/afd\/entry,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js
-贴吧proto = type=http-response,pattern=^http:\/\/c\.tieba\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js
+贴吧json = type=http-response,pattern=^http:\/\/c\.tieba\.baidu\.com\/(tiebaads\/commonbatch|c\/s\/sync),requires-body=1,max-size=1048576,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js
+贴吧json = type=http-response,pattern=^https:\/\/afd\.baidu\.com\/afd\/entry,requires-body=1,max-size=1048576,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js
+贴吧proto = type=http-response,pattern=^http:\/\/c\.tieba\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized),requires-body=1,max-size=1048576,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js
 
 [MITM]
