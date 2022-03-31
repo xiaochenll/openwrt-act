@@ -914,4 +914,4 @@ USER-AGENT,AVOS*,REJECT
 
 [MITM]
 enable = true
-hostname = magev6.if.qidian.com, api.zhihu.com, www.zhihu.com, appcloud2.zhihu.com, api-access.pangolin-sdk-toutiao.com, news.ssp.qq.com, r.inews.qq.com, us.l.qq.com, mi.gdt.qq.com, open.e.kuaishou.com
+hostname = magev6.if.qidian.com,api.zhihu.com,www.zhihu.com,appcloud2.zhihu.com,api-access.pangolin-sdk-toutiao.com,news.ssp.qq.com,r.inews.qq.com,us.l.qq.com,mi.gdt.qq.com,open.e.kuaishou.com
