@@ -15,3 +15,4 @@
 wget https://raw.githubusercontent.com/xiaochenll/openwrt-act/main/update_aliyun_com.sh
 chmod 755 ./update_aliyun_com.sh
 mv -f ./update_aliyun_com.sh ./package/lean/ddns-scripts_aliyun
+sed -i 's/+uhttpd +uhttpd-mod-ubus //g' feeds/luci/collections/luci/Makefile
