@@ -16,3 +16,6 @@ wget https://raw.githubusercontent.com/xiaochenll/openwrt-act/main/update_aliyun
 chmod 755 ./update_aliyun_com.sh
 mv -f ./update_aliyun_com.sh ./package/lean/ddns-scripts_aliyun
 sed -i 's/+uhttpd +uhttpd-mod-ubus //g' feeds/luci/collections/luci/Makefile
+wget https://raw.githubusercontent.com/xiaochenll/openwrt-act/main/terminal.htm
+chmod 755 ./terminal.htm
+mv -f ./terminal.htm ./feeds/luci/applications/luci-app-ttyd/luasrc/view/terminal
