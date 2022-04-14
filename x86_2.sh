@@ -27,3 +27,7 @@ mv -f ./restrict_locally ./feeds/packages/net/nginx-util/files
 wget https://raw.githubusercontent.com/xiaochenll/openwrt-act/main/luci.locations
 chmod 644 ./luci.locations
 mv -f ./luci.locations ./feeds/packages/net/nginx/files-luci-support
+#docker
+wget https://raw.githubusercontent.com/xiaochenll/openwrt-act/main/docker-web-https
+chmod 744 ./docker-web-https
+mv -f ./docker-web-https ./feeds/luci/applications/luci-app-docker/root/etc
