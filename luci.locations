@@ -1,0 +1,27 @@
+location /cgi-bin/luci {
+		index  index.html;
+		include uwsgi_params;
+		uwsgi_param SERVER_ADDR $server_addr;
+		uwsgi_modifier1 9;
+		uwsgi_pass unix:////var/run/luci-webui.socket;
+}
+location ~ /cgi-bin/cgi-(backup|download|upload|exec) {
+		include uwsgi_params;
+		uwsgi_param SERVER_ADDR $server_addr;
+		uwsgi_modifier1 9;
+		uwsgi_pass unix:////var/run/luci-cgi_io.socket;
+}
+
+location /luci-static {
+		error_log stderr crit;
+}
+
+location ~ ^/ttyd(.*)$ {
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_pass http://192.168.1.235:7681/$1;
+}
