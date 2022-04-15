@@ -60,6 +60,7 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        
     - name: Cache
       uses: klever1988/cachewrtbuild@main
       with:
@@ -102,6 +103,16 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+        chmod 755 $GITHUB_WORKSPACE/update_aliyun_com.sh
+        mv -f $GITHUB_WORKSPACE/update_aliyun_com.sh package/lean/ddns-scripts_aliyun
+        chmod 644 $GITHUB_WORKSPACE/terminal.htm
+        mv -f $GITHUB_WORKSPACE/terminal.htm feeds/luci/applications/luci-app-ttyd/luasrc/view/terminal
+        chmod 644 $GITHUB_WORKSPACE/restrict_locally
+        mv -f $GITHUB_WORKSPACE/restrict_locally feeds/packages/net/nginx-util/files
+        chmod 644 $GITHUB_WORKSPACE/luci.locations
+        mv -f $GITHUB_WORKSPACE/luci.locations feeds/packages/net/nginx/files-luci-support
+        chmod 755 $GITHUB_WORKSPACE/docker-web-https
+        mv -f $GITHUB_WORKSPACE/docker-web-https feeds/luci/applications/luci-app-docker/root/etc
 
     - name: Compile the firmware
       id: compile
