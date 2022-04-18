@@ -107,8 +107,6 @@ jobs:
         mv -f $GITHUB_WORKSPACE/update_aliyun_com.sh package/lean/ddns-scripts_aliyun
         chmod 644 $GITHUB_WORKSPACE/terminal.htm
         mv -f $GITHUB_WORKSPACE/terminal.htm feeds/luci/applications/luci-app-ttyd/luasrc/view/terminal
-        chmod 644 $GITHUB_WORKSPACE/restrict_locally
-        mv -f $GITHUB_WORKSPACE/restrict_locally feeds/packages/net/nginx-util/files
         chmod 644 $GITHUB_WORKSPACE/luci.locations
         mv -f $GITHUB_WORKSPACE/luci.locations feeds/packages/net/nginx/files-luci-support
         chmod 755 $GITHUB_WORKSPACE/docker-web-https
