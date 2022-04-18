@@ -3,3 +3,4 @@ echo 'src-git sundaqiang https://github.com/sundaqiang/openwrt-packages' >>feeds
 echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
 git clone https://github.com/immortalwrt-collections/openwrt-filebrowser package/openwrt-filebrowser 
 git clone https://github.com/xiaorouji/openwrt-passwall2 package/openwrt-passwall2
+git clone https://github.com/kiddin9/openwrt-bypass package/openwrt-bypass
