@@ -32,3 +32,4 @@
 #mv -f ./docker-web-https ./feeds/luci/applications/luci-app-docker/root/etc
 
 sed -i 's/+uhttpd +uhttpd-mod-ubus //g' feeds/luci/collections/luci/Makefile
+sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
