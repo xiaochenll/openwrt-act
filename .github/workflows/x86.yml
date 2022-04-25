@@ -111,6 +111,8 @@ jobs:
         mv -f $GITHUB_WORKSPACE/luci.locations feeds/packages/net/nginx/files-luci-support
         chmod 755 $GITHUB_WORKSPACE/docker-web-https
         mv -f $GITHUB_WORKSPACE/docker-web-https feeds/luci/applications/luci-app-docker/root/etc
+        chmod 755 $GITHUB_WORKSPACE/zzz-default-settings
+        mv -f $GITHUB_WORKSPACE/zzz-default-settings /package/lean/default-settings/files        
 
     - name: Compile the firmware
       id: compile
