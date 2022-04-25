@@ -30,7 +30,12 @@
 #wget https://raw.githubusercontent.com/xiaochenll/openwrt-act/main/docker-web-https
 #chmod 744 ./docker-web-https
 #mv -f ./docker-web-https ./feeds/luci/applications/luci-app-docker/root/etc
-
-sed -i 's/+uhttpd +uhttpd-mod-ubus //g' feeds/luci/collections/luci/Makefile
-#sed -i "s/enabled '0'/enabled '1'/g" feeds/packages/utils/irqbalance/files/irqbalance.config
-#sed -i 's/Os/O3 -funsafe-math-optimizations -funroll-loops -ffunction-sections -fdata-sections -Wl,--gc-sections/g' include/target.mk
+#sed -i "s/enabled '0'/enabled '1'/g" ./feeds/packages/utils/irqbalance/files/irqbalance.config
+#sed -i 's/Os/O3 -funsafe-math-optimizations -funroll-loops -ffunction-sections -fdata-sections -Wl,--gc-sections/g' ./include/target.mk
+# nginx
+#sed -i "2a/uci set nginx.global.uci_enable='false'" ./package/lean/default-settings/files/zzz-default-settings
+#sed -i '3a/uci commit nginx' ./package/lean/default-settings/files/zzz-default-settings
+#sed -i '4a/rm /etc/nginx/uci.conf' ./package/lean/default-settings/files/zzz-default-settings
+#sed -i '5a/\/etc\/init.d\/nginx restart' ./package/lean/default-settings/files/zzz-default-settings
+#sed -i '6a/\/etc\/init.d\/nginx enabled' ./package/lean/default-settings/files/zzz-default-settings
+sed -i 's/+uhttpd +uhttpd-mod-ubus //g' ./feeds/luci/collections/luci/Makefile
