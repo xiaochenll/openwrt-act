@@ -39,4 +39,4 @@
 #sed -i '5a/\/etc\/init.d\/nginx restart' ./package/lean/default-settings/files/zzz-default-settings
 #sed -i '6a/\/etc\/init.d\/nginx enabled' ./package/lean/default-settings/files/zzz-default-settings
 sed -i 's/+uhttpd +uhttpd-mod-ubus //g' ./feeds/luci/collections/luci/Makefile
-#sed -i 's/6a289406c1c0583763e5a9754e31a1eced55cd5f162a7bc2a3a315d5eb05c7a1/02b79d5e2b07b5e64cd28f1fe84395ee11eef95fc49fd923a9ab93022b148be6/g' ./feeds/packages/utils/containerd/Makefile
+sed -i 's/6a289406c1c0583763e5a9754e31a1eced55cd5f162a7bc2a3a315d5eb05c7a1/02b79d5e2b07b5e64cd28f1fe84395ee11eef95fc49fd923a9ab93022b148be6/g' ./feeds/packages/utils/containerd/Makefile
