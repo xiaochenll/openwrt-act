@@ -7,3 +7,5 @@ git clone https://github.com/kiddin9/openwrt-bypass package/openwrt-bypass
 git clone https://github.com/koshev-msk/luci-app-3proxy  package/luci-app-3proxy
 git clone https://github.com/immortalwrt-collections/openwrt-cdnspeedtest package/openwrt-cdnspeedtest
 git clone https://github.com/xiaochenll/3proxy-openwrt package/3proxy
+git clone https://github.com/jerrykuku/lua-maxminddb package/lua-maxminddb
+git clone https://github.com/jerrykuku/luci-app-vssr package/luci-app-vssr
