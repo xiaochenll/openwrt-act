@@ -105,8 +105,8 @@ jobs:
         find dl -size -1024c -exec rm -f {} \;
         chmod 755 $GITHUB_WORKSPACE/update_aliyun_com.sh
         mv -f $GITHUB_WORKSPACE/update_aliyun_com.sh feeds/packages/net/ddns-scripts_aliyun
-        chmod 644 $GITHUB_WORKSPACE/luci.locations
-        mv -f $GITHUB_WORKSPACE/luci.locations feeds/packages/net/nginx/files-luci-support
+#chmod 644 $GITHUB_WORKSPACE/luci.locations
+#mv -f $GITHUB_WORKSPACE/luci.locations feeds/packages/net/nginx/files-luci-support
         chmod 755 $GITHUB_WORKSPACE/docker-web-https
         mv -f $GITHUB_WORKSPACE/docker-web-https feeds/luci/applications/luci-app-docker/root/etc   
 
