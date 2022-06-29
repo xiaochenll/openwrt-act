@@ -20,12 +20,12 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: x86.config
-  DIY_P1_SH: x86.sh
-  DIY_P2_SH: x86_2.sh
+  DIY_P1_SH: x86-imm.sh
+  DIY_P2_SH: x86_2-imm.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
@@ -111,8 +111,8 @@ jobs:
         mv -f $GITHUB_WORKSPACE/luci.locations feeds/packages/net/nginx/files-luci-support
         chmod 755 $GITHUB_WORKSPACE/docker-web-https
         mv -f $GITHUB_WORKSPACE/docker-web-https feeds/luci/applications/luci-app-docker/root/etc
-        chmod 755 $GITHUB_WORKSPACE/zzz-default-settings
-        mv -f $GITHUB_WORKSPACE/zzz-default-settings package/lean/default-settings/files        
+        #chmod 755 $GITHUB_WORKSPACE/zzz-default-settings
+        #mv -f $GITHUB_WORKSPACE/zzz-default-settings package/lean/default-settings/files        
 
     - name: Compile the firmware
       id: compile
