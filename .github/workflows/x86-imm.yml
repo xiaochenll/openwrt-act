@@ -9,7 +9,7 @@
 #
 #chmod 644 $GITHUB_WORKSPACE/luci.locations
 #mv -f $GITHUB_WORKSPACE/luci.locations feeds/packages/net/nginx/files-luci-support
-name: X86
+name: X86-imm
 
 on:
   repository_dispatch:
